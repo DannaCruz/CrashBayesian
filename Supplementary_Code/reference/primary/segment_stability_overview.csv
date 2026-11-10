@@ -1,0 +1,4 @@
+"group","n","max_abs_difference_over_sd","median_abs_difference_over_sd","n_abs_difference_over_mcse_gt_3","mean_rank_correlation","top_decile_overlap"
+"fixed",16,0.0664002491575009,0.0166844350929222,0,NA,NA
+"spatial",7856,0.056557909322213,0.0095329491017811,20,0.999074533621419,0.994910941475827
+"fitted",7856,0.0660064976881006,0.0116857334698642,18,0.99942244505483,0.989821882951654

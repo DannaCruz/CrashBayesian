@@ -1,0 +1,8 @@
+{
+  "center": 4.399007805013234,
+  "sd": 1.0055372912820213,
+  "coefficient": "beta[14]",
+  "elasticity": "1 + beta[14]/sd_log_length",
+  "prior_beta": "Normal(0,2.5)",
+  "radius_m": 30
+}

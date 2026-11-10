@@ -1,0 +1,22 @@
+{
+  "tuning_draws": 1000,
+  "jacobian_checks": [
+    {
+      "chain": 1,
+      "jacobian_error": 2.2565949109321082e-11
+    },
+    {
+      "chain": 2,
+      "jacobian_error": -1.0440093234365122e-10
+    },
+    {
+      "chain": 3,
+      "jacobian_error": -3.942748350027614e-10
+    },
+    {
+      "chain": 4,
+      "jacobian_error": 4.5435299966811726e-10
+    }
+  ],
+  "note": "Exact same free-length model and priors; adaptive coordinates and Jacobian as point1. Pilot draws used only for fixed tuning, not pooled."
+}

@@ -1,0 +1,5 @@
+"file","rows","max_abs_difference"
+"support_simulation_replicates.csv",250,0
+"support_simulation_summary.csv",2,0
+"temporal_validation_metrics.csv",4,1.02929372010063e-05
+"temporal_validation_coefficients.csv",28,9.99200722162641e-16

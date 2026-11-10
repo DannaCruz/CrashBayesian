@@ -1,0 +1,17 @@
+run,chain,retained_draws,elapsed_marker
+segment_1,1,2000,True
+segment_1,2,2000,True
+segment_1,3,2000,True
+segment_1,4,2000,True
+segment_2,1,2000,True
+segment_2,2,2000,True
+segment_2,3,2000,True
+segment_2,4,2000,True
+intersection_final_1,1,2000,True
+intersection_final_1,2,2000,True
+intersection_final_1,3,2000,True
+intersection_final_1,4,2000,True
+intersection_final_2,1,2000,True
+intersection_final_2,2,2000,True
+intersection_final_2,3,2000,True
+intersection_final_2,4,2000,True
