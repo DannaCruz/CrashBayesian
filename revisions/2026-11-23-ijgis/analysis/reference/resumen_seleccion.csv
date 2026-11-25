@@ -1,0 +1,5 @@
+"city","adjustment","expected_K","modes_PIP_above_05","largest_MCSE"
+"Barcelona","Con covariables",2.26572992742506,"Ninguno",0.0095127089088768
+"Barcelona","Sin covariables",6.9170621982062,"1, 2, 8, 15",0.00575773246325666
+"Bogota","Con covariables",2.88602955275187,"1, 6",0.00820828793218073
+"Bogota","Sin covariables",4.44413817541068,"1, 6, 14",0.00519462805770313

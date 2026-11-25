@@ -1,0 +1,9 @@
+"city","model","elpd_gain_covariates","paired_SE","diagnostic_pass","pareto_bad"
+"Barcelona","BYM2 espectral",39.615433088863,10.4762482379142,FALSE,0
+"Barcelona","CAR espectral",36.7241122825125,13.1828079247591,TRUE,1
+"Barcelona","NB",67.1573674482846,16.9090244806111,TRUE,0
+"Barcelona","Selección espectral",36.5525027196955,14.2306658165523,TRUE,1
+"Bogota","BYM2 espectral",426.946175805625,27.2516922319151,FALSE,0
+"Bogota","CAR espectral",405.630925174806,33.7807627815341,TRUE,2
+"Bogota","NB",440.307048310456,35.9025444728944,TRUE,0
+"Bogota","Selección espectral",404.69832906358,33.781145700761,TRUE,3

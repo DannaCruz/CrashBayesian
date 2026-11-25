@@ -1,0 +1,10 @@
+analysis/reruns/
+analysis/build/
+__pycache__/
+*.pyc
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.blg

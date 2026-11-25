@@ -1,0 +1,2 @@
+"id","city","model_type","with_covariates","attempt","chains","draws_per_chain","divergences","treedepth_hits","max_rhat","min_bulk_ess","min_tail_ess","min_ebfmi","diagnostic_pass","max_local_rhat","min_local_bulk_ess"
+"Barcelona__BYM2_espectral__sin_covariables","Barcelona",3,FALSE,2,4,2000,0,0,1.01229344702241,386.094929904243,639.432888684362,0.202649577466889,FALSE,1.00516209279686,9082.36536386297

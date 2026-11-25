@@ -1,0 +1,5 @@
+"fit_id","expected_K","K_q05","K_median","K_q95"
+"Barcelona__Seleccion_espectral__con_covariables",2.26572992742506,0,1,8
+"Barcelona__Seleccion_espectral__sin_covariables",6.91706219820621,2,6,13
+"Bogota__Seleccion_espectral__con_covariables",2.88602955275187,0,2,8
+"Bogota__Seleccion_espectral__sin_covariables",4.44413817541068,1,4,9

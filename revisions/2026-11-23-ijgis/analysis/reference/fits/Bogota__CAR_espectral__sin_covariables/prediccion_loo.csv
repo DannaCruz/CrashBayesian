@@ -1,0 +1,2 @@
+"id","city","model_type","with_covariates","elpd_loo","se_elpd","p_loo","looic","loo_draws","k_threshold","pareto_bad","pareto_above_1","max_pareto_k"
+"Bogota__CAR_espectral__sin_covariables","Bogota",1,FALSE,-20155.6253681027,153.808404763517,41.344102026349,40311.2507362053,2000,0.697064249245376,1,0,0.925451680065928

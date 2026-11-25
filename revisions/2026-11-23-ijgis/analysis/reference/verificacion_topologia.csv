@@ -1,0 +1,3 @@
+"city","segments","adjacency_matches_geometry_reconstruction","maximum_eigen_residual"
+"Barcelona",2540,TRUE,3.23394393511755e-11
+"Bogota",6079,TRUE,5.24443680333935e-12

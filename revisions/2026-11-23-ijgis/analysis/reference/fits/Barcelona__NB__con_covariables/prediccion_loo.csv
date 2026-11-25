@@ -1,0 +1,2 @@
+"id","city","model_type","with_covariates","elpd_loo","se_elpd","p_loo","looic","loo_draws","k_threshold","pareto_bad","pareto_above_1","max_pareto_k"
+"Barcelona__NB__con_covariables","Barcelona",0,TRUE,-3931.08145066791,81.2370117177705,17.4098421295066,7862.16290133582,2000,0.697064249245376,0,0,0.49491447676075

@@ -1,0 +1,2 @@
+"id","city","model_type","with_covariates","elpd_loo","se_elpd","p_loo","looic","loo_draws","k_threshold","pareto_bad","pareto_above_1","max_pareto_k"
+"Barcelona__CAR_espectral__con_covariables","Barcelona",1,TRUE,-3912.46227794421,79.3854242822485,46.0021786964983,7824.92455588841,2000,0.697064249245376,1,1,1.00356406991893
