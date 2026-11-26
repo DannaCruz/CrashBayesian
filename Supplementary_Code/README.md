@@ -38,4 +38,4 @@ Use a label from runs.json. The runner compiles locally, runs the four chains se
 
 This is an aggregate-input model-reproduction archive, not a complete raw-data-to-map distribution. Full posterior chains, geographic layer snapshots and individual crash data are not in this ZIP. Geographic preprocessing and re-rendering maps require the original external layers and assignment inputs. Exact model inputs and aggregate geometric audits are included so the model analysis does not depend on reconstructing those layers. The earlier public repository must not be substituted for them. Saved diagnostics cannot regenerate posterior traces without chains; the manuscript source package supplies the published figures. Historical and pilot inputs may be present, but only runs.json labels designate reported final fits.
 
-Data attribution is in DATA_LICENSE.md; existing code licensing is in LICENSE. Publication of this prepared archive has not yet occurred; no public DOI or release is claimed.
+Data attribution is in DATA_LICENSE.md; code licensing is in LICENSE.

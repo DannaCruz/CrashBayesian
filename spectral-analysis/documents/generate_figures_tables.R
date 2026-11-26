@@ -1,7 +1,7 @@
 suppressPackageStartupMessages({library(sf);library(ggplot2);library(dplyr);library(grid)})
 args<-commandArgs(trailingOnly=TRUE)
 src<-normalizePath(if(length(args)>0)args[1] else 'outputs/modelos_espectrales')
-out<-normalizePath(if(length(args)>1)args[2] else 'outputs/articulo_revisado_IJGIS')
+out<-normalizePath(if(length(args)>1)args[2] else 'spectral-analysis/documents')
 theme_set(theme_minimal(base_size=10))
 colors<-c('Unadjusted; fixed length'='#21618c','Road attributes; fixed length'='#bc4b27',
           'Road attributes; estimated length'='#24784d')

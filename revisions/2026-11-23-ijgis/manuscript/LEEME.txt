@@ -1,5 +1,0 @@
-Manuscrito revisado para revisión de autores.
-
-Abrir manuscript.pdf y supplement.pdf. Las fuentes LaTeX, tablas, bibliografía y figuras están en esta carpeta. Compilar con latexmk -pdf manuscript.tex y latexmk -pdf supplement.tex.
-
-El README de la carpeta superior documenta los 20 ajustes, sus resultados y límites. Las simulaciones del suplemento conservan la especificación anterior; no se volvieron a ejecutar.
