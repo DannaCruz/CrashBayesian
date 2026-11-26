@@ -2,6 +2,18 @@
 
 This guide maps each reported table, figure and numerical finding to its inputs, computation and output. Paths below are relative to `spectral-analysis/`, unless a command explicitly changes directory.
 
+## Shared materials
+
+- [Download all files currently shared in this repository (ZIP)](https://github.com/DannaCruz/CrashBayesian/archive/refs/heads/main.zip)
+- [Aggregate analysis inputs and adjacency](analysis/inputs/)
+- [Stan model](analysis/models/)
+- [Portable model replay](analysis/run_model.py) and [final sampling configurations](analysis/runs.json)
+- [Workflow scripts](analysis/workflow/) and [table exporter](analysis/export_tables.py)
+- [Numerical reference outputs](analysis/reference/) and [validation record](analysis/reproduction_validation.json)
+- [Technical documents](documents/)
+
+The ZIP contains the files currently deposited; it does not add the missing original-event or historical spectral-simulation inputs listed below. All instructions and the finding-by-finding map follow on this page.
+
 ## 1. Reproduction scope
 
 There are three different operations:
