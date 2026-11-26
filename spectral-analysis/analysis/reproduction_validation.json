@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-26",
+  "time_zone": "America/Bogota",
+  "table_export": {
+    "tables": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ],
+    "archived_table_contents_match": true,
+    "comparison": "Whitespace and equivalent city-name TeX spelling normalized; all other content matched.",
+    "existing_output_refused": true,
+    "repository_layout_default_paths_checked": true,
+    "run_from_another_directory_checked": true
+  },
+  "inputs_used": "Supplied numerical audit and per-fit CSV summaries for the same 20 empirical specifications.",
+  "new_MCMC_fits_executed": false,
+  "source_event_reconstruction_verified": false,
+  "historical_spectral_simulation_reproduced": false,
+  "scope": "These checks validate numerical-summary export only, not complete source-to-finding reproducibility.",
+  "public_csv_blobs_verified": 176,
+  "display_generator": {
+    "local_geometry_input_run_completed": true,
+    "main_table_bodies_match": true,
+    "figure_count": 6,
+    "minimum_source_plot_font_pt": 11.0,
+    "public_aggregate_JSON_sufficient_for_maps": false
+  }
+}

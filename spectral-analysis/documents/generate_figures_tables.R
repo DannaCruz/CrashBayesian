@@ -1,12 +1,17 @@
 suppressPackageStartupMessages({library(sf);library(ggplot2);library(dplyr);library(grid)})
 args<-commandArgs(trailingOnly=TRUE)
-src<-normalizePath(if(length(args)>0)args[1] else 'outputs/modelos_espectrales')
-out<-normalizePath(if(length(args)>1)args[2] else 'spectral-analysis/documents')
-theme_set(theme_minimal(base_size=10))
+# Paths are command-line inputs; no personal source locations are embedded.
+if(length(args)!=2) stop('Usage: Rscript generate_figures_tables.R MODEL_RESULTS OUTPUT_DIRECTORY')
+src<-normalizePath(args[1],mustWork=TRUE)
+dir.create(args[2],recursive=TRUE,showWarnings=FALSE)
+out<-normalizePath(args[2],mustWork=TRUE)
+dir.create(file.path(out,'figures'),showWarnings=FALSE)
+dir.create(file.path(out,'tables'),showWarnings=FALSE)
+theme_set(theme_minimal(base_size=11) + theme(text=element_text(size=11), axis.text=element_text(size=11), axis.title=element_text(size=11), strip.text=element_text(size=11), legend.text=element_text(size=11), legend.title=element_text(size=11)))
 colors<-c('Unadjusted; fixed length'='#21618c','Road attributes; fixed length'='#bc4b27',
           'Road attributes; estimated length'='#24784d')
-savep<-function(name,p,w=7,h=5)ggsave(file.path(out,'figures',name),p,width=w,height=h,device=cairo_pdf)
-drawpanels<-function(name,plots,nr,nc,w=7.2,h=7) {
+savep<-function(name,p,w=6.2,h=5)ggsave(file.path(out,'figures',name),p,width=w,height=h,device=cairo_pdf)
+drawpanels<-function(name,plots,nr,nc,w=6.2,h=7) {
  cairo_pdf(file.path(out,'figures',name),width=w,height=h)
  grid.newpage();pushViewport(viewport(layout=grid.layout(nr,nc)))
  for(i in seq_along(plots))print(plots[[i]],vp=viewport(layout.pos.row=(i-1)%/%nc+1,
@@ -21,7 +26,7 @@ p<-ggplot(spectra,aes(index,eigenvalue))+geom_line(color='#21618c',linewidth=.55
  facet_wrap(~city,scales='free_y')+
  labs(x='Original spectral index',y='Normalized-adjacency eigenvalue')+
  theme(panel.grid.minor=element_blank())
-savep('spectrum.pdf',p,7,3.2)
+savep('spectrum.pdf',p,6.2,3.2)
 pip<-read.csv(file.path(src,'seleccion_con_sensibilidad_longitud.csv'))
 pip$spec<-recode(pip$adjustment,'Sin covariables, offset fijo'='Unadjusted; fixed length',
  'Con covariables, offset fijo'='Road attributes; fixed length',
@@ -33,17 +38,18 @@ p<-ggplot(pip,aes(mode,PIP,color=spec,shape=spec,linetype=spec))+
  scale_x_continuous(breaks=c(1,5,10,15,20))+
  scale_y_continuous(limits=c(0,1),breaks=c(0,.25,.5,.75,1))+
  labs(x='Candidate mode index',y='Posterior slab-membership probability',color=NULL,shape=NULL,linetype=NULL)+
- theme(legend.position='bottom',legend.text=element_text(size=8),panel.grid.minor=element_blank())+
+ theme(legend.position='bottom',legend.text=element_text(size=11),panel.grid.minor=element_blank())+
  guides(color=guide_legend(nrow=3),shape=guide_legend(nrow=3),linetype=guide_legend(nrow=3))
-savep('mode_membership.pdf',p,7,6.2)
+savep('mode_membership.pdf',p,6.2,6.2)
 rawplots<-contribplots<-fieldplots<-uncertplots<-list()
 for(city in c('Barcelona','Bogota')) {
  d<-readRDS(file.path(src,'datos',paste0(city,'_preparado.rds')))
  for(j in 1:3) {
   x<-d$segments;x$value<-d$U_raw[,j]*sqrt(nrow(x))
   rawplots[[length(rawplots)+1]]<-ggplot(x)+geom_sf(aes(color=value),linewidth=.17)+
-   scale_color_gradient2(low='#21618c',mid='grey90',high='#bc4b27',midpoint=0)+
-   coord_sf(datum=NA)+theme_void(base_size=9)+theme(legend.position='bottom',legend.key.width=unit(.5,'cm'))+
+   scale_color_gradient2(low='#21618c',mid='grey90',high='#bc4b27',midpoint=0,breaks=scales::breaks_pretty(n=3)) +
+   guides(color=guide_colorbar(title.position='top',barwidth=unit(1.7,'in'),barheight=unit(.12,'in'))) +
+   coord_sf(datum=NA)+theme_void(base_size=11)+theme(text=element_text(size=11),plot.title=element_text(size=11),legend.text=element_text(size=11),legend.title=element_text(size=11),legend.position='bottom',legend.key.width=unit(.5,'cm'))+
    labs(title=paste0(cityname(city),': mode ',j),color='RMS-scaled value')
  }
  pth<-file.path(src,'resultados',paste0(city,'__Seleccion_espectral__con_covariables__longitud_libre'))
@@ -52,35 +58,45 @@ for(city in c('Barcelona','Bogota')) {
  for(j in tops) {
   x<-d$segments;x$value<-d$B[,j]*cm$mean_coefficient[match(j,cm$mode)]
   contribplots[[length(contribplots)+1]]<-ggplot(x)+geom_sf(aes(color=value),linewidth=.17)+
-   scale_color_gradient2(low='#21618c',mid='grey90',high='#bc4b27',midpoint=0)+
-   coord_sf(datum=NA)+theme_void(base_size=9)+theme(legend.position='bottom',legend.key.width=unit(.5,'cm'))+
+   scale_color_gradient2(low='#21618c',mid='grey90',high='#bc4b27',midpoint=0,breaks=scales::breaks_pretty(n=3)) +
+   guides(color=guide_colorbar(title.position='top',barwidth=unit(1.7,'in'),barheight=unit(.12,'in'))) +
+   coord_sf(datum=NA)+theme_void(base_size=11)+theme(text=element_text(size=11),plot.title=element_text(size=11),legend.text=element_text(size=11),legend.title=element_text(size=11),legend.position='bottom',legend.key.width=unit(.5,'cm'))+
    labs(title=paste0(cityname(city),': mode ',j),color='Log-count contribution')
  }
  st<-read.csv(file.path(pth,'resumen_segmentos.csv'))
  x<-d$segments;x$value<-st$structured_field_mean
  fieldplots[[city]]<-ggplot(x)+geom_sf(aes(color=value),linewidth=.25)+
-  scale_color_gradient2(low='#21618c',mid='grey90',high='#bc4b27',midpoint=0)+
-  coord_sf(datum=NA)+theme_void(base_size=10)+theme(legend.position='bottom')+
+  scale_color_gradient2(low='#21618c',mid='grey90',high='#bc4b27',midpoint=0,breaks=scales::breaks_pretty(n=3)) +
+   guides(color=guide_colorbar(title.position='top',barwidth=unit(1.7,'in'),barheight=unit(.12,'in'))) +
+  coord_sf(datum=NA)+theme_void(base_size=11)+theme(text=element_text(size=11),plot.title=element_text(size=11),legend.text=element_text(size=11),legend.title=element_text(size=11),legend.position='bottom')+
   labs(title=cityname(city),color='Posterior mean log-count contribution')
  x$sign<-ifelse(st$structured_field_q05>0,'Interval above zero',
   ifelse(st$structured_field_q95<0,'Interval below zero','Interval contains zero'))
  uncertplots[[city]]<-ggplot(x)+geom_sf(aes(color=sign),linewidth=.25)+
   scale_color_manual(values=c('Interval above zero'='#bc4b27','Interval below zero'='#21618c','Interval contains zero'='grey80'))+
-  coord_sf(datum=NA)+theme_void(base_size=9)+theme(legend.position='bottom')+
+  coord_sf(datum=NA)+theme_void(base_size=11)+theme(text=element_text(size=11),plot.title=element_text(size=11),legend.text=element_text(size=11),legend.title=element_text(size=11),legend.position='bottom')+
   guides(color=guide_legend(nrow=3))+labs(title=cityname(city),color=NULL)
 }
-drawpanels('raw_network_modes.pdf',rawplots,2,3,7.2,6.4)
-drawpanels('adjusted_contributions.pdf',contribplots,2,3,7.2,6.4)
-drawpanels('adjusted_field.pdf',fieldplots,1,2,7.2,5.2)
-drawpanels('field_uncertainty.pdf',uncertplots,1,2,7.2,5.6)
+rawplots<-rawplots[c(1,4,2,5,3,6)]
+contribplots<-contribplots[c(1,4,2,5,3,6)]
+drawpanels('raw_network_modes.pdf',rawplots,3,2,6.2,8.0)
+drawpanels('adjusted_contributions.pdf',contribplots,3,2,6.2,8.0)
+drawpanels('adjusted_field.pdf',fieldplots,1,2,6.2,3.8)
+drawpanels('field_uncertainty.pdf',uncertplots,1,2,6.2,3.8)
 # Tables are generated from archived outputs, rather than typed estimates.
 fmt<-function(x,d=2)formatC(x,format='f',digits=d)
 esc<-function(x)gsub('_','\\_',x,fixed=TRUE)
 writebody<-function(name,rows) {
  slash<-intToUtf8(92)
- rows<-gsub(paste0(' & ',strrep(slash,4)),paste0(' ',strrep(slash,2)),rows,fixed=TRUE)
- rows<-gsub(strrep(slash,4),strrep(slash,2),rows,fixed=TRUE)
- rows<-gsub(paste0(strrep(slash,2),'%'),paste0(slash,'%'),rows,fixed=TRUE)
+ # Remove the separator before the row terminator, without touching city header cells.
+ rows<-vapply(rows,function(row) {
+   if (startsWith(row,paste0(slash,'textit'))) return(row)
+   while (endsWith(row,strrep(slash,3))) row<-substr(row,1,nchar(row)-1)
+   suffix<-paste0(' & ',strrep(slash,2))
+   if(endsWith(row,suffix)) row<-paste0(substr(row,1,nchar(row)-nchar(suffix)),' ',strrep(slash,2))
+   row<-gsub(paste0(strrep(slash,2),'%'),paste0(slash,'%'),row,fixed=TRUE)
+   row
+ },character(1))
  writeLines(c(rows,paste0(slash,'bottomrule')),file.path(out,'tables',name))
 }
 au<-read.csv(file.path(src,'resultados','auditoria_datos.csv'))

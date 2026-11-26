@@ -2,6 +2,12 @@
 
 This package contains models, aggregate inputs and computational results for road-segment crash counts in Barcelona and Bogotá. It evaluates the role of network topology, recorded road attributes and segment length across 20 fitted specifications.
 
+## Reproduce the analysis
+
+Start with the [finding-by-finding reproduction guide](REPRODUCIBILITY.md). It maps Tables 1–4, Figures 1–5, supplementary tables/figures and narrative metrics to the data, scripts, parameters and outputs. It distinguishes model replay from saved-result export and lists the unavailable source-event and historical simulation stages.
+
+For a tabular check without sampling, use the [CSV-to-LaTeX table exporter](analysis/export_tables.py). The [validation record](analysis/reproduction_validation.json) states what was actually checked.
+
 ## Explore the results
 
 - [Technical report](documents/manuscript.pdf)

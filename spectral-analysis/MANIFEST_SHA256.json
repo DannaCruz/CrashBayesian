@@ -1,6 +1,6 @@
 {
   ".gitignore": "f5143177f8831a4365a8f251553c84f44d4457c889c87f292e043eb89a4e93af",
-  "README.md": "9906bcb3eabf10501407453f719d887960a32ecb61abba0b1115c9712427159e",
+  "README.md": "7c3f88cad365677097c1ad1bac2f9b9492c4892a8dc2b0d0044cdf60ce92f376",
   "analysis/initializations/Barcelona__BYM2_espectral__con_covariables.json": "cbda43737b3fab73b132294524eb3103c07ea0b34307fcd2c464ec70f09e5799",
   "analysis/initializations/Barcelona__BYM2_espectral__sin_covariables.json": "32fdb79e96547c5a2894ea3064799f10613acde98e9df6a2ce0f19145c2e3ca9",
   "analysis/initializations/Barcelona__CAR_espectral__con_covariables.json": "18e68b4e51a448da13fb79f2c4e5eda9e22c1c1f767f25ca655a60f2cc8ea02b",
@@ -246,7 +246,7 @@
   "documents/figures/mode_membership.pdf": "9bc54d04de8b06f56439495f8913902b65db76e7fc58d8ac11dd2bef05422871",
   "documents/figures/raw_network_modes.pdf": "f1d135c0e099b0fff36abc3ce331c6fe66b43e939f520098cbb58b11e5b77eba",
   "documents/figures/spectrum.pdf": "d25b5e3f38357dbcf4c4f041c0d2046e7b229f54a74520b1a91df9a76eb157c4",
-  "documents/generate_figures_tables.R": "3966176ded4113dffa66cd38fde8c755bea620463646ec06e1ee89fac159af8e",
+  "documents/generate_figures_tables.R": "49019f9325f72653d7e28c73e4f39997fb6f606325b20db6860e0cf859f8250f",
   "documents/legacy_figures/Fig04.png": "eb54cc91c224dfd91b3498072a12f882b637dda3e9d700573cef8eecaf7bf8fd",
   "documents/legacy_figures/Fig05.png": "4d199b1b5371826a59b52be8caec169a8278aad6508a8371372d14cee8bb152f",
   "documents/legacy_figures/Fig06.png": "df5811feae228a1e4bd0e27a15760a82db72924068d42b5a25ae5dcde6626916",
@@ -263,5 +263,8 @@
   "documents/tables/data.tex": "41ae2e2dc8aa335501b723fdbfa1d2774db65b83dcf842644784fc417d46b42e",
   "documents/tables/effects.tex": "8ccd7c578024534c84744feb15fba50816683b050186a4adf54dcbb2e9b50d61",
   "documents/tables/membership.tex": "fa7dd0e7f8ff43ae806a1a6be4ba9b766f66bc48c117b9130fce9ff12ad2a11b",
-  "documents/tables/prediction.tex": "c85d88b026be2e4a4f70476903d684a4a3d0a3b325ddb15b7a0ae72a16e6b064"
+  "documents/tables/prediction.tex": "c85d88b026be2e4a4f70476903d684a4a3d0a3b325ddb15b7a0ae72a16e6b064",
+  "REPRODUCIBILITY.md": "2d7b2e7278dbf7eb2ae24b3b0b3ec0784cc3d608e3b8080813165cbd0b3b1bf0",
+  "analysis/reproduction_validation.json": "02154b3fc3e450c7ef3821a71638f846cea6ef1184dd2106a5d5922aa6662011",
+  "analysis/export_tables.py": "dfe36ad1f15b1a7cfdd8ed4bdd4c55c7d9ebc9c090c4ff7d1b98a2f4775e3af9"
 }
