@@ -1,0 +1,2 @@
+"id","city","model_type","with_covariates","elpd_loo","se_elpd","p_loo","looic","loo_draws","k_threshold","quadrature_nodes","pareto_bad","pareto_above_1","max_pareto_k"
+"Bogota__NB__con_covariables","Bogota",0,TRUE,-19831.5738474235,152.536086159795,22.5328754927545,39663.147694847,2000,0.697064249245376,0,0,0,0.418189200433559

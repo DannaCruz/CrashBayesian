@@ -1,0 +1,31 @@
+{
+  "state": "complete",
+  "completed": [
+    "Barcelona__NB__sin_covariables",
+    "Barcelona__NB__con_covariables",
+    "Bogota__NB__sin_covariables",
+    "Bogota__NB__con_covariables",
+    "Barcelona__CAR_espectral__sin_covariables",
+    "Barcelona__CAR_espectral__con_covariables",
+    "Bogota__CAR_espectral__sin_covariables",
+    "Bogota__CAR_espectral__con_covariables",
+    "Barcelona__Seleccion_espectral__sin_covariables",
+    "Barcelona__Seleccion_espectral__con_covariables",
+    "Bogota__Seleccion_espectral__sin_covariables",
+    "Bogota__Seleccion_espectral__con_covariables",
+    "Barcelona__BYM2_espectral__sin_covariables",
+    "Barcelona__BYM2_espectral__con_covariables",
+    "Bogota__BYM2_espectral__sin_covariables",
+    "Bogota__BYM2_espectral__con_covariables",
+    "Barcelona__NB__con_covariables__longitud_libre",
+    "Bogota__NB__con_covariables__longitud_libre",
+    "Barcelona__Seleccion_espectral__con_covariables__longitud_libre",
+    "Bogota__Seleccion_espectral__con_covariables__longitud_libre"
+  ],
+  "total": 20,
+  "updated_at": "2026-11-26T14:54:44-0500",
+  "source_reconstruction": "Exact equality of response, exposure, design, bases, eigenvalues, adjacency and endpoints for both cities; validation/source_to_model_input_identity.csv",
+  "sampling": "20 fits sampled in a fresh workspace from empty result directories; reference summaries were not reused as fits",
+  "scope": "Record-count analysis, preserving the original counting units and assignment rules",
+  "source_code_sha256": "1f5818dbd8c974e815fd6cd8ff7d9c0877404240e183188a05e63d3665bde3e8"
+}

@@ -1,0 +1,2 @@
+"id","city","model_type","with_covariates","elpd_loo","se_elpd","p_loo","looic","loo_draws","k_threshold","quadrature_nodes","pareto_bad","pareto_above_1","max_pareto_k"
+"Barcelona__Seleccion_espectral__con_covariables__longitud_libre","Barcelona",2,TRUE,-3836.12924888281,69.9946353192203,32.8674126177654,7672.25849776561,2000,0.697064249245376,0,0,0,0.59740204077483

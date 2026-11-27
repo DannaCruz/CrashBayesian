@@ -1,0 +1,3 @@
+"city","count_unit","source_rows","invalid_coordinates","duplicate_valid_rows","rows_excluded_by_domain","input_rows_assigned","rows_on_selected_road_ids","source_road_features","analysis_source_segments","source_support_count_total","source_year_min","source_year_max","median_assignment_distance_m","max_assignment_distance_m"
+"Barcelona","historical_records",7724,0,3,3844,3880,3880,2714,2714,3880,2023,2023,8.78267569147891,614.42148622051
+"Bogota","historical_records",468551,0,143589,14,468537,95790,54497,8169,95790,2007,2025,2.53562682009792,3012.53698251051

@@ -1,14 +1,9 @@
 # CrashBayesian
 
-Bayesian models and reproducible workflows for crash counts on road networks.
+Bayesian models for count data on road networks.
 
-## Analysis packages
+Start with the [complete spectral-analysis reproduction guide](spectral-analysis/REPRODUCIBILITY.md). The shared package includes source-record projections, fixed road geometries, commented source-to-model processing, 20 model fits, all assessment calculations and generators for the current tables, figures and documents. [Download all files](https://github.com/DannaCruz/CrashBayesian/archive/refs/heads/main.zip).
 
-- [Spectral analysis](spectral-analysis/README.md): road-segment models for Barcelona and Bogotá, with 20 fitted specifications, spectral component summaries, road attributes and segment-length sensitivity.
-- [Node–edge analysis](Supplementary_Code/README.md): Bogotá models on segment and intersection supports, with 17 fit specifications, support simulations and temporal validation.
+Barcelona counts accident-report rows from 2023; Bogotá counts person-involvement rows from the frozen 2007–2025 source. The units, spatial assignment rules and inferential limitations are documented. A new execution of all 20 models was checked against 613,334 numerical reference values with no differences outside the stated tolerance.
 
-The spectral package includes a [step-by-step reproduction guide](spectral-analysis/REPRODUCIBILITY.md) organized by table, figure and numerical finding.
-
-Each package documents its inputs, software dependencies, execution commands, saved results and computational limitations. Start with the corresponding README.
-
-The shared inputs are aggregated analysis data. Original event records, full posterior chains and some geographic source layers are external to these packages. Source attribution and data licensing are documented with the analysis materials.
+The separate [node–edge analysis](Supplementary_Code/README.md) concerns different data and specifications. It is not the reproduction package for the current spectral analysis.

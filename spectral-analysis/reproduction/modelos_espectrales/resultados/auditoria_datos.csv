@@ -1,0 +1,3 @@
+"city","original_segments","retained_segments","excluded_segments","retained_intersections","stored_Y_edges_length","response_used","retained_count_total","zero_segments","length_km","invalid_lanes","maximum_eigen_residual","source_md5"
+"Barcelona",2714,2540,174,2028,2714,"roads$Y, inverted with expm1",3735,1372,224.851121442432,0,3.23394393511755e-11,"9e4ffd533c5073bb72f3fd849abb50c5"
+"Bogota",8169,6079,2090,5107,54497,"roads$Y, inverted with expm1",85068,1722,779.001968306387,1,5.24443680333935e-12,"7b28743cc1ebacc820b6eaf0a191f767"

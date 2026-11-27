@@ -1,39 +1,84 @@
 \documentclass[11pt]{article}
 \input{preamble}
-\title{Bayesian spectral selection for road-segment crash counts:\\road attributes and length sensitivity}
-\author{Danna L. Cruz-Reyes\thanks{Corresponding author: \href{mailto:dlcruzr@unal.edu.co}{dlcruzr@unal.edu.co}. Departamento de Estad\'istica, Universidad Nacional de Colombia, Bogot\'a, Colombia.}
-\and Juan Sosa\thanks{Departamento de Estad\'istica, Universidad Nacional de Colombia, Bogot\'a, Colombia.}
-\and Carlos A. Mart\'inez\thanks{Departamento de Producci\'on Animal, Universidad Nacional de Colombia, Bogot\'a, Colombia.}}
+\title{Bayesian spectral learning on road networks:	the role of topology, road attributes and segment length}
+\author{}
 \date{}
 \begin{document}
 \maketitle
 \begin{abstract}
-Crash counts recorded on road segments require spatial representations that respect network connectivity and distinguish residual patterns from observed road characteristics. We develop a Bayesian negative-binomial model using graph-derived spectral columns on the segment support and an eigenvalue-informed continuous spike-and-slab prior with ordered component scales. Posterior slab-membership probabilities describe component-specific evidence without imposing exact-zero coefficients. Applications to prepared networks in Barcelona and Bogot\'a compare adjustment for road class, lane count and surface tags, followed by sensitivity to the proportionality between counts and segment length. Among 20 candidate modes, expected slab membership decreases from 6.92 to 1.31 in Barcelona and from 4.44 to 2.47 in Bogot\'a after both adjustments. Estimated length elasticities are approximately 0.59 in both networks. No Barcelona mode exceeds a membership probability of 0.5 in the fully adjusted specification; one Bogot\'a mode does, with probability 0.56. Nevertheless, retaining the continuous spectral field improves exploratory pointwise predictive scores over an otherwise matched nonspatial model. These findings distinguish component membership from predictive spatial contribution and show how length assumptions affect spectral interpretation. Remaining data-provenance checks, predictive discrepancies and comparator sampling warnings limit substantive and out-of-region conclusions. The contribution is a segment-supported framework for examining conditional network patterns and their uncertainty within a fixed candidate basis.
+	Understanding spatial variation in network-constrained count data 
+	requires statistical representations that account for network 
+	topology, observed infrastructure characteristics, and the 
+	definition of observational units. We proposed a Bayesian spectral 
+	modelling framework for road-segment counts that combines a 
+	negative-binomial likelihood with an eigenvalue-informed 
+	continuous spike-and-slab prior. The framework quantifies 
+	posterior evidence for individual network-derived spatial 
+	patterns while retaining uncertainty in the complete spatial 
+	field. Applications to road networks in Barcelona and Bogotá 
+	demonstrate how the incorporation of road attributes and 
+	alternative assumptions about segment length influence the 
+	inferred spectral structure. Among 20 candidate spectral 
+	components, expected posterior slab membership decreased from 
+	6.92 to 1.31 in Barcelona and from 4.44 to 2.47 in Bogotá after 
+	accounting for road attributes and estimating length elasticity. 
+	Estimated elasticities were approximately 0.59 in both networks, 
+	providing evidence against the assumption of proportionality 
+	between expected counts and segment length. Despite reduced 
+	slab membership, the spectral field improved pointwise 
+	predictive performance relative to matched nonspatial models. 
+	These findings highlight the distinction between spectral 
+	component relevance and predictive spatial contribution, 
+	providing a probabilistic framework for interpreting spatial 
+	patterns in network-constrained geographical data. The graph-based 
+	construction is transferable under its stated assumptions; the numerical 
+	findings remain conditional on the two analysed networks.
 \end{abstract}
-\noindent\textbf{Keywords:} geographical information science; road networks; spectral spatial modelling; Bayesian shrinkage; crash counts; observational support
+\noindent\textbf{Keywords:}
+Geographical information science;
+network-constrained spatial data;
+Bayesian spectral modelling;
+spike-and-slab regularization;
+road networks;
+spatial count data.
 
 \section{Introduction}
-Road-crash observations combine an event process with a geographical representation of the infrastructure on which events are recorded. A segment count is indexed by a line feature, while the connectivity that can induce dependence is determined by intersections and shared endpoints. This creates a GIScience question about observational support: how should a spatial representation preserve the topology of the road network while remaining aligned with the units entering the likelihood? A second question concerns interpretation. A broad network pattern may reflect unobserved spatial variation, recorded road characteristics, or an assumption about how counts accumulate with segment length. Distinguishing these possibilities is necessary before interpreting a spectral map as residual spatial information.
+Counts observed along geographical networks raise a question about how spatial information is represented: should dependence be attached to intersections, road segments or Euclidean neighbourhoods, and what does a network-derived pattern mean once the observation model is specified? For segment counts, topology determines which observational units are connected, while recorded attributes and the assumed accumulation of counts with segment length affect the variation left for a spatial field. A spectral map therefore has two distinct interpretations: it can describe the chosen network representation, or it can describe a fitted contribution to the count process. Distinguishing them is a GIScience problem concerning the alignment of geographical representation, observational support and statistical inference.
 
-Bayesian spatial models have long been used for roadway counts and crash mapping \citep{song2006,aguerovalverde2008}. Intersection-based applications represent corridor dependence or interactions among closely spaced junctions \citep{guo2010,xie2014}. Segment models and joint segment--intersection models recognize that the appropriate support depends on the response being analysed \citep{aguerovalverde2008,zenghuang2014}. When a segment response is explained by a latent intersection field, a projection from nodes to edges is additionally required. Defining the field directly on segments avoids that projection, although it does not by itself establish a new class of spatial dependence.
+Bayesian models have long been used for roadway counts and crash mapping \citep{song2006,aguerovalverde2008}. Intersection-based applications represent corridor dependence or interactions among closely spaced junctions \citep{guo2010,xie2014}, whereas segment and joint segment--intersection models recognize that the appropriate support depends on the response \citep{aguerovalverde2008,zenghuang2014}. If a segment response is explained by a latent intersection field, a node-to-edge projection is additionally required. Defining the field on segments avoids that projection, although segment support alone does not establish a new class of dependence.
 
-Graph representations also support a broader programme of geographical information modelling. For example, \citet{maduako2019} represent changing relationships among places and events using a space-time varying graph and demonstrate the representation with traffic accidents. Their contribution concerns dynamic graph representation and querying, whereas the present study concerns statistical regularization and interpretation of aggregate segment counts. The common issue is that topology and observational support are substantive modelling choices rather than merely cartographic details.
+Network representation is also a broader topic in geographical information modelling. For example, \citet{maduako2019} used a space-time varying graph to represent changing relationships among places and events. The present study concerns statistical inference on a fixed graph rather than dynamic graph representation or querying. Both involve the substantive choice of which geographical entities and relationships the representation preserves.
 
-Eigenvector spatial filtering and graph signal processing provide established ways to express spatial variation using graph-adapted patterns \citep{griffith2003,griffith2019,shuman2013}. Random-effects spectral formulations accommodate uncertainty in the coefficients \citep{murakami2015}, while Bayesian dimension reduction and shrinkage address regularization and interactions with fixed effects \citep{hughes2013,donegan2020}. Thus, neither spectral spatial modelling nor Bayesian shrinkage of eigenvector coefficients is new. The random edge neighbourhood Gaussian model, RENeGe, supplies an existing segment-neighbourhood construction from which a road-supported operator can be obtained \citep{cruzreyes2023spasta}.
+Eigenvector spatial filtering and graph signal processing already provide graph-adapted descriptions of spatial variation \citep{griffith2003,griffith2019,shuman2013}. Random-effects spectral models propagate coefficient uncertainty \citep{murakami2015}, and Bayesian dimension reduction and shrinkage address regularization and interactions with fixed effects \citep{hughes2013,donegan2020}. The random edge neighbourhood Gaussian model, RENeGe, supplies an existing segment-neighbourhood construction \citep{cruzreyes2023spasta}. The contribution here is therefore a specific inferential construction and interpretation on geographical edge support, rather than the introduction of spectral filtering or Bayesian shrinkage themselves.
 
-We combine that segment support with an eigenvalue-informed continuous mixture prior and posterior membership summaries. The framework is used to ask which candidate network patterns retain evidence after accounting for road attributes and the assumed relationship between counts and segment length. The candidate set is kept fixed within each city so that changes in posterior evidence cannot be attributed to changes in the graph or basis. We compare the mixture formulation with a nonspatial negative-binomial model, a dense low-rank spectral alternative and a spectral BYM2-type comparator.
+We developed a negative-binomial model that combined shared-endpoint segment topology with an eigenvalue-informed continuous spike-and-slab prior. The ordered mixture scales support posterior allocation probabilities for individual candidate patterns, while all coefficient draws enter the spatial field and predictions. We distinguished the original operator eigenvectors, the centred and scaled regression columns, and the signed posterior contributions mapped on segments. We then kept the graph and candidate columns fixed within each network while changing the attribute and length specifications, so that changes in component evidence were attributable to the observation model rather than a different graph or basis.
 
-The empirical contribution has three parts. First, we maintain a transparent distinction between the original operator eigenvectors, the transformed columns entering the regression, and the signed posterior contributions that can be mapped. Second, we examine component membership before and after adjustment for road class, lane count and surface tags, with a further sensitivity analysis estimating the length coefficient. Third, we separate membership evidence, predictive contribution and distributional adequacy. A continuous spike permits nonzero coefficients, so weak slab membership need not imply that the fitted spatial field has no predictive value. These claims concern a fixed low-rank representation; they do not establish superiority over full-rank graph models or alternative shrinkage priors.
+\paragraph{Intellectual contribution to GIScience.}
+The framework connects three objects that should not be interpreted interchangeably: the topology-derived candidate representation, posterior evidence about component allocation, and the geographical field entering prediction. It provides a model-based way to ask whether a mapped network pattern retains evidence after accounting for the attributes and support of the observational units. The induced covariance and limiting cases in Section~\ref{sec:induced_covariance} explain why weak slab membership does not imply an absent spatial field: a continuous spike retains nonzero prior variation on the chosen graph-derived subspace. The contribution is the joint treatment of geographical support, component-specific uncertainty and predictive use of that representation. It is not a claim of an exact reduction of the full RENeGe covariance or universal improvement over other shrinkage methods.
+
+\paragraph{Scope of generalization.}
+The mathematical construction does not require Barcelona- or Bogot\'a-specific coordinates, road categories or response values. It applies to a finite undirected segment-neighbourhood graph with positive degrees, nonconstant retained columns, and a positive length or exposure measure, when a negative-binomial observation model and the stated log-linear mean are appropriate. With $0\leq\gamma<1$, normalized-adjacency eigenvalues in $[-1,1]$ give positive variance denominators; the induced covariance and the continuous-spike limiting behaviour follow for any such fixed basis. These are transferable properties of the formulation. Application to a new network requires reconstructing its adjacency and basis, choosing its candidate dimension, defining suitable attributes and exposure, and refitting and checking the model; it does not transfer the fitted coefficients or component identities between cities. Directed flow, temporal dynamics, disconnected or isolated units and alternative segmentation require separate treatment or validation.
+
+The empirical analyses have a narrower scope. We investigated source-record counts in two urban networks to illustrate the framework under different geographical configurations. The two cases were not a probability sample of cities or a spatial-transfer experiment. Neither a length elasticity near 0.59, a decrease in expected slab membership, nor a predictive gain is asserted to hold on every road network. Their direction and magnitude depend on data provenance, network representation, available attributes, the observation model and the candidate basis. The general contribution is the reusable construction and the separation of inferential objects; cross-network performance and substantive crash relationships remain empirical questions.
+
+Specifically, the study addressed three questions:
+\begin{enumerate}
+\item How can an edge-supported model distinguish topology-derived patterns, posterior component allocation and geographical contributions to a network count field?
+\item In the two applications, how did adjustment for recorded road attributes and estimation of length elasticity change evidence for the same candidate patterns?
+\item Within matched specifications, did continuous spectral regularization retain predictive spatial information when component allocation became weaker?
+\end{enumerate}
+
+For readers analysing other network-supported counts, the resulting workflow offers a way to separate a structural property of the GIS representation from evidence supplied by a fitted observation model. It also provides a reporting rule: component membership, signed field maps, predictive scores and adequacy checks should be reported as complementary quantities. Potential extensions to infrastructure-failure or other segment-count processes require domain-appropriate observation and exposure definitions and fresh validation; they were not evaluated in the present applications.
 
 \section{Road networks, counts and recorded attributes}
 \subsection{Observational support and analytical samples}
-The analyses use two supplied spatial datasets containing road geometry, graph objects, OpenStreetMap-derived attributes and a stored segment response. We reconstructed binary segment adjacency from shared endpoints, retained the connected component containing the greatest number of segments, and preserved the original segment order. Parallel road features were retained; a pair sharing both endpoints received one binary adjacency entry. Independent reconstruction of the adjacency directly from the retained geometries reproduced the matrix used in the models. This checks geographical alignment of geometry and graph support, rather than validation of the original crash records.
+The analyses used frozen municipal source records and road-network snapshots with OpenStreetMap-derived attributes. We reconstructed the segment counts from the source rows using the archived spatial assignment rules before fitting the models. We reconstructed binary segment adjacency from shared endpoints, retained the connected component containing the greatest number of segments, and preserved the original segment order. Parallel road features were retained; a pair sharing both endpoints received one binary adjacency entry. Independent reconstruction of the adjacency directly from the retained geometries reproduced the matrix used in the models. The reconstructed responses and every model input matched the archived inputs exactly; this verifies computational provenance while preserving the original counting and assignment rules.
 
 The Barcelona source contains 2,714 segments. Its retained component has 2,540 segments and 2,028 intersections. The Bogot\'a source contains 8,169 segments; its retained component has 6,079 segments and 5,107 intersections. Component restriction excludes 174 and 2,090 segments, respectively. The resulting inference is conditional on the retained networks. Characteristics of excluded components and sensitivity to the study boundary have not been evaluated. Table~\ref{tab:data} describes only the retained analytical support.
 
 \begin{table}[tb]
 \centering\small
-\caption{Retained analytical samples. Totals are recovered from the stored segment response; they have not been reconciled with event-level source records.}
+\caption{Retained analytical samples. Totals count source records: accident-report rows in Barcelona and person-involvement rows in Bogot\'a. They are not directly comparable counts of distinct crashes.}
 \label{tab:data}
 \begin{tabular}{lrr}\toprule
 Characteristic & Barcelona & Bogot\'a\\\midrule
@@ -41,9 +86,9 @@ Characteristic & Barcelona & Bogot\'a\\\midrule
 \end{table}
 
 \subsection{Response recovery and provenance}
-For each retained segment, the stored response is numerically compatible with $\log(1+Y_e)$ for a nonnegative integer $Y_e$. We inverted this transformation and checked the integer correspondence. Recovered totals are 3,735 for Barcelona and 85,068 for Bogot\'a. This verifies a numerical transformation; it does not verify event deduplication, inclusion criteria or assignment of crashes to segments. In the Bogot\'a source, a separate object named \texttt{Y\_edges} has 54,497 entries and is incompatible with the 8,169 source road features. That object was excluded. The response used here is the geometry-aligned segment column.
+We reconstructed Barcelona counts from the 2023 Guardia Urbana accident-report file (7,724 rows and 7,721 distinct incident identifiers). We retained repeated report rows, transformed coordinates to EPSG:25831, restricted records to the frozen road snapshot bounding box and assigned each remaining row to its nearest road feature. We reconstructed Bogot\'a counts from the frozen person-involvement source file covering 2007--2025 (468,551 rows and 324,962 distinct incident identifiers). We transformed coordinates to EPSG:3116, retained valid rows within the full road snapshot bounding box, assigned them to the nearest feature in that snapshot, aggregated by OpenStreetMap identifier and inherited those counts on the selected road features. Thus, multiple people involved in one crash contributed multiple records in Bogot\'a. Neither response was deduplicated into distinct crashes.
 
-The preceding manuscript attributes the Barcelona observations to Open Data BCN over 2010--2015 and the Bogot\'a observations to the municipal crash-data portal. The exact records and observation period represented by the prepared Bogot\'a response remain to be reconciled. These applications are therefore conditional analyses of the supplied prepared counts, not verified estimates of city-wide incidence. The revised Bogot\'a support also differs from the 6,076-segment support reported previously. All numerical results in the main text refer to the present 6,079-segment reconstruction; earlier application estimates are not pooled with them.
+The source reconstruction reproduced every archived segment count and all inputs to the 20 fitted specifications exactly. After restricting to the greatest connected component, the totals were 3,735 report rows in Barcelona and 85,068 person-involvement rows in Bogot\'a. The original aggregation in Bogot\'a preceded clipping the selected road geometries, so counts on an inherited OpenStreetMap feature can include contributions from its clipped-away portions. The archived support and this assignment rule were preserved to reproduce the reported analysis; they do not define incidence strictly within the final clipped geometry. Source hashes, coordinate exclusions, assignments and distances are exported by the shared workflow. The two responses describe different record units and observation periods; their magnitudes are not comparable estimates of city-wide crash incidence. All numerical results refer to the retained 2,540-segment and 6,079-segment networks.
 
 Segment lengths were recomputed from the projected geometries: ETRS89/UTM zone 31N for Barcelona and EPSG:3116 for Bogot\'a. Length measures the amount of represented roadway, not vehicle flow. No traffic-volume-adjusted risk is estimated, and different observation periods prevent substantive cross-city comparisons of count levels.
 
@@ -52,7 +97,7 @@ The common road attributes are road class, lane-count category and surface tag. 
 
 Surface tags are grouped as \texttt{asphalt}, another recorded tag, and unknown. Another tag includes generic \texttt{paved} as well as more specific materials; it cannot be interpreted uniformly as absence of asphalt. Only 22 Barcelona segments have another recorded surface tag, compared with 583 in Bogot\'a. Surface is unknown on 138 and 160 segments. Unknown categories are nuisance controls for recording patterns, not observations that the corresponding infrastructure is absent. Complete category counts and coefficient summaries are supplied in the supplementary material.
 
-The attributes have not been harmonized historically with the crash observation periods. Their coefficients are conditional associations within these prepared datasets, not historical causal effects. We avoid selecting additional covariates from incomplete speed or width fields at this stage. Road attributes are introduced as a fixed, interpretable set; they are not selected by the spectral mixture.
+The attributes have not been harmonized historically with the crash observation periods. Their coefficients are conditional associations within these prepared datasets, not historical causal effects. We avoided selecting additional covariates from incomplete speed or width fields at this stage. Road attributes are introduced as a fixed, interpretable set; they are not selected by the spectral mixture.
 
 \section{A segment-supported spectral representation}
 \subsection{From road topology to candidate patterns}
@@ -91,12 +136,12 @@ The eigenvalue weighting is motivated by the proper edge-neighbourhood precision
 \end{equation}
 Our regression uses the transformed $B$ and omits the external degree factors. It is an operator-inspired low-rank construction, not an exact reparameterization of this full Gaussian field. Omitting Perron is likewise a modelling restriction: since Perron is degree-related before transformation, omission can remove more than an intercept. These distinctions are important for interpreting what the candidate set can represent.
 
-Eigenvector signs are arbitrary. Consequently, interpretation uses a signed posterior contribution $a_j=B_j\E(b_j\mid Y)$, which is invariant to simultaneously reversing a column and its coefficient. We report its RMS magnitude to rank contributions and map the contributions themselves. This differs from interpreting an unweighted eigenvector as an estimated crash pattern.
+Eigenvector signs are arbitrary. Consequently, interpretation uses a signed posterior contribution $a_j=B_j\E(b_j\mid Y)$, which is invariant to simultaneously reversing a column and its coefficient. We ranked posterior mean contributions by their RMS magnitudes and mapped the signed contributions themselves. This differs from interpreting an unweighted eigenvector as an estimated crash pattern.
 
 \FloatBarrier
 \section{Bayesian count model and comparison design}
 \subsection{Road attributes and the length assumption}
-For segment $e$, let $L_e$ be length in kilometres and $x_e$ the eight indicator variables formed from the recorded road attributes. We use the negative-binomial parameterization
+For segment $e$, let $L_e$ be length in kilometres and $x_e$ the eight indicator variables formed from the recorded road attributes. We used the negative-binomial parameterization
 \begin{align}
  Y_e\mid\mu_e,\phi&\sim\operatorname{NegBinomial}_2(\mu_e,\phi),\\
  \log\mu_e&=\log L_e+\alpha+x_e^{\mathsf T}\beta
@@ -105,7 +150,7 @@ For segment $e$, let $L_e$ be length in kilometres and $x_e$ the eight indicator
 \end{align}
 where $\Var(Y_e\mid\mu_e,\phi)=\mu_e+\mu_e^2/\phi$. The primary comparison sets $d=0$, imposing proportional accumulation of expected counts with length. The sensitivity analysis estimates $d$, giving the total length elasticity $\ell=1+d$. Centering changes the intercept interpretation, not the elasticity. When $\ell$ is estimated, the target is an expected count conditional on length and recorded attributes; it should not be described as a constant frequency per kilometre.
 
-We assign $\alpha\sim N(0,5^2)$, each recorded-attribute coefficient $\beta_k\sim N(0,0.7^2)$ and $\phi\sim\operatorname{Exponential}(0.5)$, with the exponential expressed by its rate. In the estimated-length analysis $d\sim N(0,0.7^2)$, so $\ell\sim N(1,0.7^2)$. These priors are independent of the full-data empirical mean. Unknown-category coefficients receive the same regularization as other indicators but are not given physical interpretations.
+We assigned $\alpha\sim N(0,5^2)$, each recorded-attribute coefficient $\beta_k\sim N(0,0.7^2)$ and $\phi\sim\operatorname{Exponential}(0.5)$, with the exponential expressed by its rate. In the estimated-length analysis $d\sim N(0,0.7^2)$, so $\ell\sim N(1,0.7^2)$. These priors are independent of the full-data empirical mean. Unknown-category coefficients receive the same regularization as other indicators but are not given physical interpretations.
 
 \subsection{Ordered continuous spike-and-slab regularization}
 The spatial field in the mixture spectral model is $s=Bb$. For $j=1,\ldots,M$, define latent membership $z_j$ and
@@ -125,7 +170,134 @@ The additive spike variance ensures an ordered wider component for $\tau>0$. Lar
 \end{equation}
 are recovered after integrating the binary indicators out of the sampling target. They measure posterior allocation to the slab, not the probability that a coefficient is nonzero. When the component scales are close, membership is intrinsically less differentiated.
 
-For $K=\sum_jz_j$, $\E(K\mid Y)=\sum_jp_j$. We also compute its posterior distribution by averaging conditional Poisson-binomial distributions across draws. Quantiles of $K$ are therefore distinct from quantiles of the draw-wise sum of conditional membership probabilities. A threshold of 0.5 is used only to summarize membership descriptively. All coefficient draws contribute to posterior fields and predictions, including coefficients allocated predominantly to the continuous spike. Neither $\E(K\mid Y)$ nor the number above 0.5 is a literal rank of the fitted field.
+For $K=\sum_jz_j$, $\E(K\mid Y)=\sum_jp_j$. We also computed its posterior distribution by averaging conditional Poisson-binomial distributions across draws. Quantiles of $K$ are therefore distinct from quantiles of the draw-wise sum of conditional membership probabilities. A threshold of 0.5 is used only to summarize membership descriptively. All coefficient draws contribute to posterior fields and predictions, including coefficients allocated predominantly to the continuous spike. Neither $\E(K\mid Y)$ nor the number above 0.5 is a literal rank of the fitted field.
+
+\subsection{Induced covariance and properties of the spectral field}
+\label{sec:induced_covariance}
+
+The proposed hierarchical prior induces a structured covariance 
+on the geographical support of the road network. Let
+
+\begin{equation}
+	\mathbf{s} = \mathbf{B}\mathbf{b},
+\end{equation}
+
+where $\mathbf{B}\in\mathbb{R}^{n\times M}$ contains the 
+transformed graph-derived spectral columns and
+$\mathbf{b}=(b_1,\ldots,b_M)^\top$ denotes the corresponding 
+regression coefficients.
+
+Conditional on the membership indicators $\mathbf{z}$ and 
+the global slab scale $\tau$, the coefficients satisfy
+
+\begin{equation}
+	b_j \mid z_j,\tau
+	\sim
+	\mathcal{N}\left(
+	0,
+	\sigma_0^2+
+	z_j\frac{\tau^2}{1-\gamma\lambda_j}
+	\right).
+\end{equation}
+
+Define
+
+\begin{equation}
+	\mathbf{V}_{\mathbf{z}}
+	=
+	\operatorname{diag}\left(
+	\sigma_0^2+
+	z_j\frac{\tau^2}{1-\gamma\lambda_j}
+	\right)_{j=1}^{M}.
+\end{equation}
+
+Under conditional independence of the spectral coefficients,
+the induced conditional distribution of the spatial field is
+
+\begin{equation}
+	\mathbf{s}\mid\mathbf{z},\tau
+	\sim
+	\mathcal{N}_n\left(
+	\mathbf{0},
+	\mathbf{B}\mathbf{V}_{\mathbf{z}}\mathbf{B}^{\top}
+	\right),
+\end{equation}
+
+where the Gaussian distribution may be degenerate because 
+the covariance matrix has rank at most $M$.
+
+Integrating over the membership indicators, with
+$z_j\mid\pi\sim\operatorname{Bernoulli}(\pi)$, yields
+
+\begin{equation}
+	\mathbb{E}(\mathbf{s}\mid\pi,\tau)
+	=
+	\mathbf{0},
+\end{equation}
+
+and
+
+\begin{equation}
+	\operatorname{Cov}(\mathbf{s}\mid\pi,\tau)
+	=
+	\mathbf{B}
+	\operatorname{diag}\left(
+	\sigma_0^2+
+	\frac{\pi\tau^2}{1-\gamma\lambda_j}
+	\right)_{j=1}^{M}
+	\mathbf{B}^{\top}.
+	\label{eq:induced_covariance}
+\end{equation}
+
+The marginal distribution obtained by integrating over
+$\mathbf{z}$ is generally a Gaussian mixture rather than
+a single Gaussian distribution.
+
+In particular, the induced prior covariance between two road 
+segments $e$ and $r$ is
+
+\begin{equation}
+	\operatorname{Cov}(s_e,s_r\mid\pi,\tau)
+	=
+	\sum_{j=1}^{M}
+	B_{ej}B_{rj}
+	\left(
+	\sigma_0^2+
+	\frac{\pi\tau^2}{1-\gamma\lambda_j}
+	\right).
+	\label{eq:segment_covariance}
+\end{equation}
+
+Equation~\eqref{eq:segment_covariance} illustrates how 
+network-derived spatial patterns determine the dependence 
+between road segments. Dependence is represented through 
+shared spectral structure rather than being specified directly 
+as a function of Euclidean distance.
+
+For $\gamma>0$, the eigenvalue-informed variance component 
+satisfies
+
+\begin{equation}
+	\frac{\partial}{\partial\lambda_j}
+	\left(
+	\frac{\tau^2}{1-\gamma\lambda_j}
+	\right)
+	=
+	\frac{\gamma\tau^2}
+	{(1-\gamma\lambda_j)^2}
+	>0,
+\end{equation}
+
+for $\tau>0$. Consequently, spectral components associated 
+with larger eigenvalues receive greater prior slab variance, 
+allowing broader variation along the corresponding 
+low-frequency network patterns.
+
+The strength of this differential regularization depends on 
+both $\gamma$ and the dispersion of the retained eigenvalues.
+When the candidate eigenvalues are closely concentrated, 
+the eigenvalue-informed slab approaches an approximately 
+homogeneous variance specification.
 
 \subsection{Nonspatial, dense spectral and BYM2-type comparisons}
 The nonspatial model sets $s=0$. The dense spectral comparator has $b_j=\tau w_j\xi_j$, where $w_j=(1-\gamma\lambda_j)^{-1/2}$, $\xi_j\sim N(0,1)$ and $\tau\sim N^+(0,0.5^2)$. It retains the complete candidate set without mixture membership. Its label denotes the common low-rank operator-derived representation, not a fitted full-rank CAR model.
@@ -142,6 +314,64 @@ With independent standard normal vectors $\xi$ and $v$, its field is
 The structured component has unit geometric-mean marginal variance before multiplication by its scale. This is a spectral BYM2-type comparator on the retained basis, not a full-rank BYM2 analysis.
 
 The primary experiment contains four model families, two cities and two attribute specifications: unadjusted (U) and road-attribute adjusted (C), both imposing $\ell=1$. Four additional fits estimate length (L): nonspatial and mixture spectral models in both cities, with the same recorded attributes. This gives 20 fitted specifications. Dense spectral and BYM2-type models with estimated length were not fitted, so the additional L comparison is matched only between nonspatial and mixture spectral models.
+
+
+\paragraph{Limiting behaviour.}
+
+The induced covariance provides a unified interpretation 
+of several limiting cases of the proposed formulation.
+
+First, when $\pi\rightarrow 0$,
+
+\begin{equation}
+	\operatorname{Cov}(\mathbf{s}\mid\pi,\tau)
+	\longrightarrow
+	\sigma_0^2\mathbf{B}\mathbf{B}^{\top}.
+\end{equation}
+
+The spatial field remains continuously regularized rather 
+than being constrained to zero.
+
+Second, when $\pi\rightarrow 1$,
+
+\begin{equation}
+	\operatorname{Cov}(\mathbf{s}\mid\pi,\tau)
+	\longrightarrow
+	\mathbf{B}
+	\operatorname{diag}\left(
+	\sigma_0^2+
+	\frac{\tau^2}{1-\gamma\lambda_j}
+	\right)_{j=1}^{M}
+	\mathbf{B}^{\top}.
+\end{equation}
+
+This corresponds to allocation of all candidate components 
+to the wider mixture distribution.
+
+Under the additional limit $\sigma_0\rightarrow 0$, the 
+resulting covariance becomes
+
+\begin{equation}
+	\tau^2\mathbf{B}
+	\operatorname{diag}\left(
+	\frac{1}{1-\gamma\lambda_j}
+	\right)_{j=1}^{M}
+	\mathbf{B}^{\top},
+\end{equation}
+
+recovering the covariance structure of the dense spectral 
+comparator considered in this study.
+
+Finally, setting $\gamma=0$ removes eigenvalue-dependent 
+differentiation between slab variances. The prior then reduces 
+to a continuous spike-and-slab specification with a common 
+slab variance across the retained spectral components.
+
+These relationships clarify how the proposed formulation 
+connects continuous spectral shrinkage, dense spectral 
+regularization, and conventional mixture-based priors 
+within a common edge-supported representation.
+
 
 \subsection{Computation, prediction and adequacy}
 All models were sampled in CmdStan 2.36.0 using four chains. Initial runs used 1,000 warm-up and 1,000 retained iterations per chain, target acceptance 0.99 and maximum tree depth 13. A diagnostic-triggered rerun used 2,000 warm-up and 2,000 retained iterations, target acceptance 0.995 and depth 14. The operational pass criterion required no divergences or depth saturation, maximum rank-normalized $\widehat R\leq1.01$, minimum bulk effective sample size of 400 and minimum chain E-BFMI of 0.3. We monitored mixture probabilities as well as core parameters; BYM2-type fits also included checks of independent effects. Rank and effective-size diagnostics follow the principles described by \citet{vehtari2021}.
@@ -219,7 +449,7 @@ Estimating length materially improves calibration of replicated summaries. For B
 
 In Bogot\'a, the mixture L model reproduces the mean and upper-count summaries more closely than the fixed-length specification. Observed mean 13.99 is compared with median replicated mean 13.87 (13.10--14.85), and observed 99th percentile 146.22 with median replicated value 146 (131.21--164.23). However, the observed zero fraction is 0.283, above the replicated interval 0.237--0.260. The conditional model still underrepresents zeros. This discrepancy motivates examination of unrecorded exposure, covariate coverage, segmentation and alternative observation models; a raw zero proportion alone would not have established that need.
 
-Residual graph checks also qualify the spectral interpretation. Under C, median residual Moran's $I$ for the mixture model is approximately $-0.054$ in Barcelona and $0.064$ in Bogot\'a, outside the corresponding replicated reference ranges. The leading positively associated candidate patterns do not guarantee removal of dependence at all graph frequencies. Sampling success and improved pointwise scores consequently do not establish full distributional or spatial adequacy. Detailed checks, including the L fits, are retained in the supplementary material and computational archive.
+Residual graph checks also qualify the spectral interpretation. Under C, median residual Moran's $I$ for the mixture model is approximately $-0.054$ in Barcelona and $0.064$ in Bogot\'a, outside the corresponding replicated reference ranges. The leading positively associated candidate patterns do not guarantee removal of dependence at all graph frequencies. Sampling success and improved pointwise scores consequently do not establish full distributional or spatial adequacy. Checks for the L fits are summarized in the supplementary material; complete numerical diagnostics belong in the computational archive.
 
 \section{Discussion}
 \subsection{What is learned from the spectral representation?}
@@ -229,27 +459,45 @@ Two distinctions are especially important for GIScience. First, source eigenvect
 
 Keeping segment support and candidate columns fixed makes these changes interpretable as consequences of the statistical specification rather than changes in cartographic units. Nevertheless, road-network segmentation and boundary selection remain part of the geographical model. A new segmentation can change both counts and eigenvectors. Neither the present two-city comparison nor its fixed candidate set establishes invariance to those operations.
 
-\subsection{Scope, limitations and simulation evidence}
+\subsection{Scope and limitations}
 The mixture formulation provides probabilistic component summaries on an existing graph-supported basis. Its novelty is the specific combination of segment support, ordered eigenvalue-informed component scales and interpretation under attribute and length adjustment. It is not the invention of Bayesian spectral filtering, and the experiments do not compare it with modern alternatives such as regularized-horseshoe filtering \citep{donegan2020}. The transformed basis also prevents describing the method as exact RENeGe covariance reduction. Prior sensitivity, alternative candidate sizes, inclusion of degree-related Perron structure and full-rank comparisons remain necessary to assess robustness beyond the reported construction.
 
-The earlier manuscript contains a 1,200-dataset simulation experiment with 4,800 model executions. We preserve its design and reported summaries in a separately identified historical section of the supplementary material. That experiment reported small advantages under aligned sparse truth and poorer coverage under local or unstructured misspecification. It used an earlier prior and preprocessing specification, and several comparator simulations had weak computational diagnostics. It was not rerun for the ordered prior, recorded attributes or estimated-length analyses presented here. Consequently, it supplies historical context rather than validation of the revised empirical model. A harmonized simulation should evaluate the present prior, covariate--spatial overlap, length misspecification and membership uncertainty before strong method-performance claims are made.
+A harmonized simulation of the present specification remains necessary to assess operating characteristics under known truth, covariate--spatial overlap and length misspecification. The present study reports the two empirical applications and does not claim simulation-based validation of the current model.
 
-The most consequential empirical limitations concern provenance, exposure and validation. Geometry-to-graph checks and integer recovery do not replace reconciliation with dated, deduplicated crash events. Recorded road attributes require temporal alignment. Length cannot identify traffic-adjusted risk, and its fitted elasticity may absorb unmeasured traffic, road function and segmentation effects. Pointwise PSIS-LOO does not assess transfer to a withheld connected region. Outstanding Pareto cases, BYM2-type energy warnings, zero-count discrepancies and residual graph dependence each concern a different limitation; none is resolved merely by moving a table to supplementary material.
+The most consequential empirical limitations concern provenance, exposure and validation. Source-to-model reconstruction establishes computational provenance, but the preserved record units, unequal periods and original spatial assignment rules limit substantive interpretation. The Bogot\'a response weights crashes by the number of person-involvement rows, and inherited road identifiers can include counts outside the final clipped geometry. Recorded road attributes require temporal alignment. Length cannot identify traffic-adjusted risk, and its fitted elasticity may absorb unmeasured traffic, road function and segmentation effects. Pointwise PSIS-LOO does not assess transfer to a withheld connected region. Outstanding Pareto cases, BYM2-type energy warnings, zero-count discrepancies and residual graph dependence each concern a different limitation; none is resolved merely by moving a table to supplementary material.
+
+\subsection{Implications for geographical information science}
+\label{sec:gis_implications}
+The transferable methodological result is a way to keep geographical representation and statistical interpretation distinct while linking them in a single model. Segment adjacency specifies the relations represented by the GIS; transformed graph-derived columns provide candidate patterns; posterior allocation and signed contributions describe how those columns enter a count model. The same graph may therefore support different posterior interpretations when attributes or the length relationship change. This is a statement about conditional inference, not evidence that one adjustment must reduce spatial structure in every setting.
+
+The distinction between allocation and the complete field also holds beyond the two applications. Under the stated prior, the covariance limit as $\pi\to0$ is $\sigma_0^2BB^{\mathsf T}$, which is nonzero for a nonzero basis and $\sigma_0>0$. Thus, interpreting weak slab allocation as a zero spatial representation would misdescribe the formulation itself. Whether the remaining field improves prediction in another dataset must nevertheless be tested; the covariance identity alone cannot establish such a gain.
+
+For readers implementing the method, these results imply four practical steps. First, define the observational support and reconstruct adjacency on those same units. Second, distinguish raw eigenvector maps from signed posterior contribution maps. Third, compare attribute and exposure specifications while holding a candidate basis fixed within a given network. Fourth, assess component evidence, the complete field, predictive performance and residual adequacy separately. A probability threshold for slab allocation is not a substitute for checking zero-count calibration, residual graph dependence or influential observations.
+
+The construction can be refitted to other undirected network count problems satisfying its assumptions. This mathematical transferability does not establish robustness to geographical boundaries, road segmentation, graph frequency truncation or unmeasured exposure. A changed segmentation alters both counts and graph-derived columns. Directed or temporally changing network processes are outside the evaluated formulation, and full-rank comparisons, prior sensitivity and spatially blocked validation remain necessary to assess performance beyond the retained networks.
 
 \section{Conclusions}
-Bayesian spectral selection on road segments offers a way to examine which candidate network patterns receive posterior support conditional on the rest of a crash-count model. In the prepared Barcelona and Bogot\'a networks, recorded road attributes and estimation of the length relationship substantially reduce allocation to the wider mixture component. The estimated length coefficient is approximately 0.59 in both applications, indicating that the original unit-offset assumption materially influences the analysis.
+This study developed an edge-supported Bayesian spectral framework for overdispersed counts on geographical networks. Its contribution to GIScience is a model-based connection between the topology and support encoded by a geographical representation and the uncertainty attached to its use in statistical inference. The framework separates topology-derived candidate patterns, posterior allocation to a wider mixture component, and the complete geographical field used for prediction. The covariance construction and continuous-spike limiting behaviour are properties of the model on any admissible fixed graph-derived basis; they do not depend on the two named cities.
 
-The continuous spectral field nevertheless improves exploratory pointwise prediction over an otherwise matched nonspatial model. This result supports reporting signed field contributions, component probabilities and predictive checks together. It does not support equating slab membership with exact dimension reduction or interpreting the resulting maps as traffic-adjusted risk. Verification of event provenance, improved comparator computation, candidate-set sensitivity and spatially blocked validation are required before the patterns are translated into substantive geographical or road-safety recommendations.
+This is the sense in which the methodological contribution extends beyond the applications. A new undirected network with suitable segment counts and positive exposure can be analysed by reconstructing its graph and basis and refitting the observation model. The construction transfers, while fitted coefficients, selected component identities, elasticities and predictive rankings do not transfer without new evidence. The method does not establish invariance to a changed network representation or guarantee better prediction in a new geographical setting.
+
+In the Barcelona and Bogot\'a applications, adjustment for recorded attributes and estimation of length elasticity reduced expected slab membership, while the full spectral field retained pointwise predictive information relative to matched nonspatial models. Estimated length elasticities near 0.59 challenged proportional accumulation with length in these prepared datasets. These are conditional findings from the two retained networks, not universal estimates for urban crash processes. Their broader interpretive value is to show why a topology-derived map, a component-membership summary and a predictive spatial contribution answer different questions.
+
+For readers, the framework provides a reusable analysis and reporting workflow: align the latent field with the observational units, distinguish candidate patterns from estimated geographical contributions, compare observation-model assumptions on a fixed basis, and report predictive and adequacy checks alongside component evidence. Weak slab membership should not be treated as proof of absent spatial information, and a smooth spectral map should not be treated as a traffic-adjusted risk surface or an explanation of a crash mechanism.
+
+The empirical evidence remains limited by different record units and observation periods, the preserved nearest-road and pre-clipping aggregation rules, road attributes without historical alignment, and the absence of vehicle-flow exposure. The fixed 20-component basis, omitted Perron structure, connected-component restriction and untested prior and segmentation sensitivity further limit generalization. Pointwise PSIS-LOO did not evaluate transfer to unseen regions; influential observations, BYM2-type energy warnings, residual graph dependence and underprediction of zeros in Bogot\'a qualify the reported predictive results. A harmonized simulation of the current model remains outstanding.
+
+The general contribution is an explicit formulation and interpretation for network-supported count inference under stated assumptions. Broader empirical claims require harmonized simulations, additional networks and spatially blocked validation of the current specification.
 
 \FloatBarrier
-\section*{Data and computational materials}
-The municipal source portals are Open Data BCN (\url{https://opendata-ajuntament.barcelona.cat/}) and Bogot\'a Open Data (\url{https://datosabiertos.bogota.gov.co/}). Exact event-level correspondence with the prepared responses has not been reconciled. The accompanying computational archive contains prepared segment inputs, graph-derived columns, Stan code, fitting scripts and numerical summaries for the 20 empirical specifications. The historical simulation summaries are distinguished from these results.
+\section*{Data and code availability statement}
+The source-record projections, frozen road geometries, source hashes, commented preprocessing and Stan code, recorded sampling settings and initializations, numerical reference outputs, and finding-by-finding reproduction instructions are accessible through a single entry point: \url{https://github.com/DannaCruz/CrashBayesian/blob/main/spectral-analysis/REPRODUCIBILITY.md}. The shared projections preserve every source row, its incident identifier, year and coordinates while excluding unused personal attributes. The executable workflow reconstructs the responses and graph inputs, fits all 20 specifications, computes assessment measures, and regenerates all four main tables, five main figures, five supplementary tables and the supplementary figure. Frozen geographic inputs are included; municipal portals serve as source attribution rather than required reproduction endpoints. The guide states the distinct counting units and spatial assignment rules.
 
 \section*{Competing interests}
 The authors declare no competing financial interests or personal relationships that could have influenced the work.
 
 \section*{Use of generative AI}
-OpenAI Codex assisted with code development, data checks, figure preparation, manuscript restructuring and language editing. Verification of the data, statistical interpretation and responsibility for the final submitted work rest with the authors.
+OpenAI Codex assisted with code development, data checks, figure preparation, manuscript restructuring and language editing. Verification of the data, statistical interpretation and responsibility for the work rest with the authors.
 
 \bibliographystyle{plainnat}
 \bibliography{references}

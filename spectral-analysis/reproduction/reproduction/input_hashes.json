@@ -1,0 +1,9 @@
+{
+  "source_data/Barcelona_records.csv.gz": "cac501e261f66583faddd9e12af50c2576b3e0c2a5c3d5ead93879a343a5fb7b",
+  "source_data/Bogota_records.csv.gz": "1db1243bb837e82e8c21cbed2c3055c8f5e68f3ad10a517c490869860214d319",
+  "source_data/networks/Barcelona_analysis_roads.rds": "43634f584f95179f14a56df16cd8f6916d5a3d460c4f337a972ad554407ceda2",
+  "source_data/networks/Bogota_analysis_roads.rds": "c14f7cad43262379bf6c01bc8bd9618c5b3d4b4e8551c1733dc764089f6faf07",
+  "source_data/networks/Bogota_assignment_roads.rds": "27648f60eea4786599f007c0b49283a9fad4c15fa8c5a8483d445d50c2ad0534",
+  "source_data/networks/Bogota_domain.rds": "431bfc697470394032fa2bcbfa629db54e68f2c993ed8bdd76fff6a98f11fe68",
+  "source_data/source_projection_manifest.json": "05aba9811e2294ce6f8ea0460f28911fd8f4a17e86a0eefbe72a346101f2f1ff"
+}

@@ -1,0 +1,23 @@
+{
+  "manuscript": {
+    "pages": 21,
+    "minimum_all_text_pt": 6.973800182342529
+  },
+  "manuscript_with_authors": {
+    "pages": 22,
+    "minimum_all_text_pt": 5.97760009765625
+  },
+  "supplement": {
+    "pages": 3,
+    "minimum_all_text_pt": 6.973800182342529
+  },
+  "figure_minimum_text_pt": {
+    "field_uncertainty.pdf": 11.0,
+    "adjusted_field.pdf": 11.0,
+    "adjusted_contributions.pdf": 11.0,
+    "spectrum.pdf": 11.0,
+    "raw_network_modes.pdf": 11.0,
+    "mode_membership.pdf": 11.0
+  },
+  "figure_labels_in_manuscript_minimum_pt": 11.18634033203125
+}

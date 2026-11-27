@@ -1,0 +1,64 @@
+[
+  {
+    "city": "Barcelona",
+    "source_basename": "Barcelona_2023.csv",
+    "source_sha256": "1a1e46974aed9b1fc4b951c34214aa84273dc805830052fc82d27819d3d36ac8",
+    "projection_basename": "Barcelona_records.csv.gz",
+    "projection_sha256": "cac501e261f66583faddd9e12af50c2576b3e0c2a5c3d5ead93879a343a5fb7b",
+    "source_rows": 7724,
+    "unique_identifiers": 7721,
+    "years": {
+      "2023": 7724
+    },
+    "columns": [
+      "source_row",
+      "event_id",
+      "year",
+      "date_source",
+      "lon",
+      "lat"
+    ],
+    "projection_policy": "All input rows retained in original order; only unused columns removed.",
+    "original_basename": "2023_accidents_gu_bcn.csv"
+  },
+  {
+    "city": "Bogota",
+    "source_basename": "Bogota_person_rows.csv.gz",
+    "source_sha256": "488121a6ced02212d4132978beac08c3682d8d7e80740c2d423a55b5fc0bb335",
+    "projection_basename": "Bogota_records.csv.gz",
+    "projection_sha256": "1db1243bb837e82e8c21cbed2c3055c8f5e68f3ad10a517c490869860214d319",
+    "source_rows": 468551,
+    "unique_identifiers": 324962,
+    "years": {
+      "2007": 27438,
+      "2008": 19848,
+      "2009": 17532,
+      "2010": 24760,
+      "2011": 25122,
+      "2012": 26948,
+      "2013": 25893,
+      "2014": 24725,
+      "2015": 26558,
+      "2016": 26874,
+      "2017": 27674,
+      "2018": 34122,
+      "2019": 34285,
+      "2020": 24993,
+      "2021": 18309,
+      "2022": 21547,
+      "2023": 22983,
+      "2024": 22674,
+      "2025": 16266
+    },
+    "columns": [
+      "source_row",
+      "event_id",
+      "year",
+      "date_source",
+      "lon",
+      "lat"
+    ],
+    "projection_policy": "All input rows retained in original order; only unused columns removed.",
+    "original_basename": "accidentes_bogota.csv.gz"
+  }
+]

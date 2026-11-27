@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\input{preamble}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setlength{\parskip}{3pt}
+\setlength{\textfloatsep}{9pt}
+\setlength{\intextsep}{9pt}
+\captionsetup{font=small,skip=4pt}
+\begin{document}
+\begin{center}\large\textbf{Supplementary material}\\[3pt]
+\normalsize Bayesian spectral learning on road networks\end{center}
+\section{Recorded categories and coefficients}
+U denotes no attributes and fixed length; C includes attributes and fixed length; L includes attributes and estimates length. The retained supports contain 2,540 Barcelona and 6,079 Bogot\'a segments. Unknown labels describe missing recording, not absent infrastructure. Other surface tags include generic paved tags. A Bogot\'a lane count of 22 was assigned to unknown. Reference categories are residential roads, two lanes and asphalt.
+\par
+\begin{table}[!htbp]\centering\small
+\caption{Recorded attribute categories on the retained support.}
+\begin{tabular}{llrr}\toprule Attribute & Category & Barcelona & Bogot\'a\\\midrule
+\input{tables/s1.tex}\end{tabular}\end{table}
+\FloatBarrier
+\par
+
+\par
+\begin{table}[!htbp]\centering\small
+\caption{Conditional count ratios in the mixture L models: medians and marginal 90\% intervals. Unknown-category coefficients are nuisance controls.}
+\begin{tabular}{llrrr}\toprule Network & Indicator & Median ratio & 5th percentile & 95th percentile\\\midrule
+\input{tables/s2.tex}\end{tabular}\end{table}
+\FloatBarrier
+\par
+\clearpage
+\section{Sampling and predictive checks}
+N denotes nonspatial NB, D dense spectral, M mixture spectral and B spectral BYM2. The joint criterion required no divergences or depth saturation, maximum $\widehat R\leq1.01$, minimum bulk ESS $\geq400$ and minimum E-BFMI $\geq0.3$. All retained fits had zero divergences and depth saturations. The four BYM2 fits retained energy warnings after longer runs; successful execution does not establish adequate exploration. Pointwise PSIS-LOO does not assess spatial transferability.
+\par
+\begin{table}[!htbp]\centering\small
+\caption{Core sampler diagnostics. Minimum E-BFMI is across four chains; independent-effect checks also apply to BYM2.}
+\begin{tabular}{llrrrrl}\toprule Network & Model & Draws/chain & Max. $\widehat R$ & Min. ESS & Min. E-BFMI & Criterion\\\midrule
+\input{tables/s3.tex}\end{tabular}\end{table}
+\FloatBarrier
+\par
+
+\par
+\begin{table}[!htbp]\centering\small
+\caption{Mixture L predictive checks, using 400 replicated datasets. $p_+$ is the fraction of replicated statistics at least as large as observed.}
+\begin{tabular}{llrrrl}\toprule Network & Statistic & Observed & Rep. median & 90\% rep. interval & $p_+$\\\midrule
+\input{tables/s4.tex}\end{tabular}\end{table}
+\FloatBarrier
+\par
+\clearpage
+\section{Residual dependence and field uncertainty}
+Residual checks used centred Pearson residuals on the reconstructed adjacency. Residual dependence remained outside replicated reference ranges. Improved scores and sampler convergence do not imply complete spatial or distributional adequacy. In particular, the Bogot\'a mixture L model underpredicted the zero fraction (Table S4).
+\par
+\begin{table}[!htbp]\centering\small
+\caption{Residual Moran's $I$ for the estimated-length models. Values use centred Pearson residuals and the reconstructed segment adjacency; the replicated reference is conditional on each draw.}
+\begin{tabular}{llrrrl}\toprule Network & Model & Observed median & Rep. median & 90\% rep. interval & $p_+$\\\midrule
+\input{tables/s5.tex}\end{tabular}\end{table}
+\FloatBarrier
+\par
+
+The structured field combines all 20 candidate coefficients, including coefficients predominantly allocated to the continuous spike. Marginal interval sign support does not imply simultaneous hotspot significance or traffic-adjusted risk.
+\par
+\begin{figure}[!htbp]\centering
+\includegraphics[width=\textwidth]{field_uncertainty.pdf}
+\caption{Marginal 90\% structured-field intervals in mixture L fits. Colours distinguish intervals above, below or containing zero. These segment-wise summaries differ from component slab membership.}
+\end{figure}
+\FloatBarrier
+\par
+
+\noindent\textbf{Scope.} These tables concern the revised ordered prior and four-chain empirical fits. Source-record reconstruction reproduced the model inputs exactly while preserving report-row and person-involvement counting units. Temporal alignment of attributes, sensitivity to priors and basis dimension, harmonized simulation and spatially blocked validation remain outstanding.
+\end{document}

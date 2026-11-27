@@ -1,0 +1,2 @@
+"id","city","model_type","with_covariates","attempt","chains","draws_per_chain","divergences","treedepth_hits","max_rhat","min_bulk_ess","min_tail_ess","min_ebfmi","diagnostic_pass"
+"Barcelona__NB__sin_covariables","Barcelona",0,FALSE,1,4,1000,0,0,1.00243169476181,1512.22143525998,1389.32477339089,0.885201623489417,TRUE

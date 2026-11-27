@@ -1,0 +1,1040 @@
+{
+  "computed_fit_count": 20,
+  "compared_files": 172,
+  "numeric_cells": 613334,
+  "cells_outside_tolerance": 0,
+  "checks": [
+    {
+      "file": "Barcelona__BYM2_espectral__con_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__con_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__con_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__con_covariables/covariables.csv",
+      "numeric_cells": 96,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__con_covariables/diagnostico_cuadratura.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__con_covariables/diagnosticos.csv",
+      "numeric_cells": 12,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__con_covariables/parametros.csv",
+      "numeric_cells": 297,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__con_covariables/prediccion_loo.csv",
+      "numeric_cells": 11,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__con_covariables/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__sin_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__sin_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__sin_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__sin_covariables/diagnostico_cuadratura.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 5.3013149425851225e-15,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__sin_covariables/diagnosticos.csv",
+      "numeric_cells": 12,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__sin_covariables/parametros.csv",
+      "numeric_cells": 225,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__sin_covariables/prediccion_loo.csv",
+      "numeric_cells": 11,
+      "max_absolute_difference": 2.984279490192421e-13,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__BYM2_espectral__sin_covariables/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__con_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__con_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__con_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__con_covariables/covariables.csv",
+      "numeric_cells": 96,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__con_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__con_covariables/parametros.csv",
+      "numeric_cells": 288,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__con_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__con_covariables/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__sin_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__sin_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__sin_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__sin_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__sin_covariables/parametros.csv",
+      "numeric_cells": 216,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__sin_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__CAR_espectral__sin_covariables/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables/covariables.csv",
+      "numeric_cells": 96,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables/parametros.csv",
+      "numeric_cells": 99,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables__longitud_libre/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables__longitud_libre/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables__longitud_libre/covariables.csv",
+      "numeric_cells": 108,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables__longitud_libre/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables__longitud_libre/elasticidad_longitud.csv",
+      "numeric_cells": 3,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables__longitud_libre/parametros.csv",
+      "numeric_cells": 108,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables__longitud_libre/prediccion_loo.csv",
+      "numeric_cells": 11,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__con_covariables__longitud_libre/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__sin_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__sin_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__sin_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__sin_covariables/parametros.csv",
+      "numeric_cells": 27,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__sin_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__NB__sin_covariables/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/complejidad.csv",
+      "numeric_cells": 9,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/covariables.csv",
+      "numeric_cells": 96,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/distribucion_K.csv",
+      "numeric_cells": 42,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/parametros.csv",
+      "numeric_cells": 486,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables/seleccion_modos.csv",
+      "numeric_cells": 120,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/complejidad.csv",
+      "numeric_cells": 9,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/covariables.csv",
+      "numeric_cells": 108,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/distribucion_K.csv",
+      "numeric_cells": 42,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/elasticidad_longitud.csv",
+      "numeric_cells": 3,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/parametros.csv",
+      "numeric_cells": 495,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/prediccion_loo.csv",
+      "numeric_cells": 11,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre/seleccion_modos.csv",
+      "numeric_cells": 120,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/complejidad.csv",
+      "numeric_cells": 9,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/distribucion_K.csv",
+      "numeric_cells": 42,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/parametros.csv",
+      "numeric_cells": 414,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/resumen_segmentos.csv",
+      "numeric_cells": 17780,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Barcelona__Seleccion_espectral__sin_covariables/seleccion_modos.csv",
+      "numeric_cells": 120,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__con_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__con_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__con_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__con_covariables/covariables.csv",
+      "numeric_cells": 96,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__con_covariables/diagnostico_cuadratura.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__con_covariables/diagnosticos.csv",
+      "numeric_cells": 12,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__con_covariables/parametros.csv",
+      "numeric_cells": 297,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__con_covariables/prediccion_loo.csv",
+      "numeric_cells": 11,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__con_covariables/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__sin_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__sin_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__sin_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__sin_covariables/diagnostico_cuadratura.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__sin_covariables/diagnosticos.csv",
+      "numeric_cells": 12,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__sin_covariables/parametros.csv",
+      "numeric_cells": 225,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__sin_covariables/prediccion_loo.csv",
+      "numeric_cells": 11,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__BYM2_espectral__sin_covariables/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__con_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__con_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__con_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__con_covariables/covariables.csv",
+      "numeric_cells": 96,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__con_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__con_covariables/parametros.csv",
+      "numeric_cells": 288,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__con_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__con_covariables/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__sin_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__sin_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__sin_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__sin_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__sin_covariables/parametros.csv",
+      "numeric_cells": 216,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__sin_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__CAR_espectral__sin_covariables/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables/covariables.csv",
+      "numeric_cells": 96,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables/parametros.csv",
+      "numeric_cells": 99,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables__longitud_libre/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables__longitud_libre/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables__longitud_libre/covariables.csv",
+      "numeric_cells": 108,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables__longitud_libre/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables__longitud_libre/elasticidad_longitud.csv",
+      "numeric_cells": 3,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables__longitud_libre/parametros.csv",
+      "numeric_cells": 108,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables__longitud_libre/prediccion_loo.csv",
+      "numeric_cells": 11,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__con_covariables__longitud_libre/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__sin_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__sin_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__sin_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__sin_covariables/parametros.csv",
+      "numeric_cells": 27,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__sin_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__NB__sin_covariables/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/complejidad.csv",
+      "numeric_cells": 9,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/covariables.csv",
+      "numeric_cells": 96,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/distribucion_K.csv",
+      "numeric_cells": 42,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/parametros.csv",
+      "numeric_cells": 486,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables/seleccion_modos.csv",
+      "numeric_cells": 120,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/complejidad.csv",
+      "numeric_cells": 9,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/covariables.csv",
+      "numeric_cells": 108,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/distribucion_K.csv",
+      "numeric_cells": 42,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/elasticidad_longitud.csv",
+      "numeric_cells": 3,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/parametros.csv",
+      "numeric_cells": 495,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/prediccion_loo.csv",
+      "numeric_cells": 11,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__con_covariables__longitud_libre/seleccion_modos.csv",
+      "numeric_cells": 120,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/autocorrelacion_residual.csv",
+      "numeric_cells": 5,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/complejidad.csv",
+      "numeric_cells": 9,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/comprobaciones_predictivas.csv",
+      "numeric_cells": 25,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/contribuciones_modos.csv",
+      "numeric_cells": 80,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/diagnosticos.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/distribucion_K.csv",
+      "numeric_cells": 42,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/parametros.csv",
+      "numeric_cells": 414,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/prediccion_loo.csv",
+      "numeric_cells": 10,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/resumen_segmentos.csv",
+      "numeric_cells": 42553,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    },
+    {
+      "file": "Bogota__Seleccion_espectral__sin_covariables/seleccion_modos.csv",
+      "numeric_cells": 120,
+      "max_absolute_difference": 0.0,
+      "cells_outside_tolerance": 0
+    }
+  ]
+}

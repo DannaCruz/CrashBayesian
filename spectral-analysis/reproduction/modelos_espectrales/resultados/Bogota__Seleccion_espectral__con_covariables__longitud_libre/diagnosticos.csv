@@ -1,0 +1,2 @@
+"id","city","model_type","with_covariates","attempt","chains","draws_per_chain","divergences","treedepth_hits","max_rhat","min_bulk_ess","min_tail_ess","min_ebfmi","diagnostic_pass"
+"Bogota__Seleccion_espectral__con_covariables__longitud_libre","Bogota",2,TRUE,1,4,1000,0,0,1.00262007439749,1456.3880571983,1741.06758272286,0.933646541714368,TRUE
