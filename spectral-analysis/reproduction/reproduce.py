@@ -11,6 +11,7 @@ p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--output',type=Path,required=True,help='New output directory')
 p.add_argument('--cmdstan',type=Path,required=True,help='Installed CmdStan directory, reference version 2.36.0')
 p.add_argument('--workers',type=int,default=4)
+p.add_argument('--prepare-only',action='store_true',help='Reconstruct source counts, graph, design and all model inputs without sampling')
 p.add_argument('--skip-pdf',action='store_true',help='Produce tables and figures without compiling LaTeX')
 a=p.parse_args()
 def run(cmd,cwd=ROOT):
@@ -39,6 +40,9 @@ def r(script):run(['Rscript','--vanilla','modelos_espectrales/codigo/'+script],o
 r('preparar_datos.R');r('crear_trabajos.R');r('agregar_sensibilidad_longitud.R')
 configure(model,out/'work/modelos_espectrales/trabajos.json')
 r('diagnosticar_longitud.R')
+if a.prepare_only:
+ print('Source reconstruction and all 20 model inputs prepared:',out)
+ sys.exit(0)
 run([sys.executable,'modelos_espectrales/codigo/compilar_modelo.py','--cmdstan',cmdstan],out)
 # Four chains for each of 20 fits; seeds and budgets come from recorded settings.
 run([sys.executable,'modelos_espectrales/codigo/correr_modelos.py','--final-settings','--workers',a.workers],out)

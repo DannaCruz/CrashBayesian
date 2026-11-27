@@ -1,0 +1,147 @@
+{
+  "stage": "Actual new executor run from source snapshots in an empty directory through all 20 job inputs",
+  "completed_fits_prepared": 20,
+  "all_inputs_initializations_seeds_settings_identical": true,
+  "checks": [
+    {
+      "fit": "Barcelona__NB__sin_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Barcelona__NB__con_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__NB__sin_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__NB__con_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Barcelona__CAR_espectral__sin_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Barcelona__CAR_espectral__con_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__CAR_espectral__sin_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__CAR_espectral__con_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Barcelona__Seleccion_espectral__sin_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Barcelona__Seleccion_espectral__con_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__Seleccion_espectral__sin_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__Seleccion_espectral__con_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Barcelona__BYM2_espectral__sin_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Barcelona__BYM2_espectral__con_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__BYM2_espectral__sin_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__BYM2_espectral__con_covariables",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Barcelona__NB__con_covariables__longitud_libre",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__NB__con_covariables__longitud_libre",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Barcelona__Seleccion_espectral__con_covariables__longitud_libre",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    },
+    {
+      "fit": "Bogota__Seleccion_espectral__con_covariables__longitud_libre",
+      "data_file_identical": true,
+      "init_file_identical": true,
+      "seed_identical": true,
+      "settings_identical": true
+    }
+  ]
+}
